@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rb.velocity = new Vector3(2, 0, 0);
+		if (this.transform.position.x == -3.01)
+			rb.velocity = new Vector3(2, 0, 0);
 	}
+	
 }

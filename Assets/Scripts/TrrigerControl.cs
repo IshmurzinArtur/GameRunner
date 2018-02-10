@@ -12,8 +12,13 @@ public class TrrigerControl : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		BoxControl boxScript = box.GetComponent<BoxControl>;
-		if (boxScript.AllGood == true)
-			youCanJump = true;
+		BoxControl bc = box.GetComponent<BoxControl>();
+		youCanJump = bc.AllGood;
+	}
+	void OnTriggerEnter2D(Collider2D a)
+	{
+		GameObject obj = a.gameObject;
+		Rigidbody2D rbObj = obj.GetComponent<Rigidbody2D>();
+		rbObj.AddForce(new Vector2(33, 10), ForceMode2D.Impulse);
 	}
 }
